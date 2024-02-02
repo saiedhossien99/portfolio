@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <div class="w-full h-screen bg-[#0e1414] font-serif">
+
+    <div class="grid grid-cols-2 w-full bg-[#0e1414] h-auto px-4">
+      <div class="py-2 flex flex-row">
+        <p class="text-white text-2xl">S</p>
+        <p class="text-2xl text-[#f95400]">aied</p>
+      </div>
+
+      <div class="flex flex-row justify-end gap-x-4 py-2 px-4">
+        <a class="text-sm lg:text-xl  text-white border-b-2 border-transparent hover:border-[#f95400]"
+          href="index.html">home</a>
+        <a class="text-sm lg:text-xl  text-white border-b-2 border-transparent hover:border-[#f95400]"
+          href="about.html">about</a>
+        <a class="text-sm lg:text-xl text-white border-b-2 border-transparent hover:border-[#f95400]"
+          href="education.html">education</a>
+        <a class="text-sm lg:text-xl text-white border-b-2 border-transparent hover:border-[#f95400]"
+          href="contact.html">contact</a>
+      </div>
+    </div>
+
+    <div class="flex flex-row">
+      <div class="flex flex-col w-7/12 mt-10">
+        <div class="text-xl lg:text-8xl flex flex-row ml-6 mt-10">
+          <p class="font-serif text-[#f95400]">He</p>
+          <p class="font-serif text-white">llo</p>
+          <p class="text-[#f95400]">,</p>
+        </div>
+        <div class="text-xl lg:text-8xl flex flex-row ml-6 mt-2 lg:mt-10 font-serif">
+          <p class="font-serif text-[#f95400]">i</p>
+          <p class="text-white text-xl lg:text-8xl">'</p>
+          <p class=" text-[#f95400]">m</p>
+          <p class="text-white text-xl lg:text-8xl ml-7">saied hossien</p>
+        </div>
+        <p class="text-white ml-6 text-xs font-thin lg:text-xl mt-2" id="word"></p>
+
+
+        <button class="bg-[#f95400] w-32 py-2 mt-11 ml-7 h-fit">Download CV</button>
+      </div>
+      <div class="flex flex-row">
+        <img src="profile-removebg-preview.png" class="w-92 mt-auto">
+      </div>
+    </div>
+
+
+
+  </div>
+  <script>
+    const words = ["Profesional webside developer", "proficient at tailwind.css, javascript, html"];
+    let i = 0;
+    let timer;
+
+    function typingEffect() {
+      let word = words[i].split("");
+      var loopTyping = function () {
+        if (word.length > 0) {
+          document.getElementById('word').innerHTML += word.shift();
+        } else {
+          deletingEffect();
+          return false;
+        };
+        timer = setTimeout(loopTyping, 500);
+      };
+      loopTyping();
+    };
+
+    function deletingEffect() {
+      let word = words[i].split("");
+      var loopDeleting = function () {
+        if (word.length > 0) {
+          word.pop();
+          document.getElementById('word').innerHTML = word.join("");
+        } else {
+          if (words.length > (i + 1)) {
+            i++;
+          } else {
+            i = 0;
+          };
+          typingEffect();
+          return false;
+        };
+        timer = setTimeout(loopDeleting, 200);
+      };
+      loopDeleting();
+    };
+
+    typingEffect();
+  </script>
+
+</body>
+
+</html>
